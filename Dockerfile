@@ -1,7 +1,7 @@
 FROM node:alpine
 LABEL maintainer="https://github.com/ilex0208/amosns-docker"
 
-RUN adduser --disabled-password --gecos "" amosns && \
+RUN apk update && apk upgrade && apk add git && adduser -D -S -s /bin/sh -h /amosns amosns && \
     mkdir -p /opt/amosns/storage
 
 WORKDIR /opt/amosns
