@@ -1,0 +1,14 @@
+.git
+# consider them hidden
+.*
+# you can add exceptions like in .gitignore to maintain a whitelist:
+# e.g.
+!.babelrc
+!.eslintrc
+!.eslintignore
+!.stylelintrc
+
+# do not copy over node_modules we will run `npm install` anyway
+node_modules
+
+.vscode/
