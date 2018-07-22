@@ -43,23 +43,6 @@ docker run -v /path/to/config.yaml:/opt/amosns/config.yaml --name amosns -d -p 9
 
 Restart the container anytime you change the config.
 
-### configure Vagrant
-
-Setting the npm registry to `http://localhost:9696` in a Dockerfile which should point to the amosns registry locally will not work during the `docker build` process, since localhost:9696 references to the Docker container itself and not the host-machine where amosns runs.
-With the Vagrant configuration one could locally spin up this Dockerfile in a vbox with the command `vagrant up` and reference this registry it in a 'target'-Dockerfile with `RUN npm set registry http://10.10.10.10:9696`.
-
-```bash
-# vagrant up
-```
-
-and in the Dockerfile of your application set
-
-```bash
-CMD npm set registry http://10.10.10.10:9696
-```
-
-[Vagrant](https://en.wikipedia.org/wiki/Vagrant_\(software\)) is open source. See install instructions for [mac](http://sourabhbajaj.com/mac-setup/Vagrant/README.html) or [\*nix](http://www.olindata.com/blog/2014/07/installing-vagrant-and-virtual-box-ubuntu-1404-lts).
-
 ### Backups
 
 `docker run --volumes-from amosns -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /opt/amosns`
@@ -80,4 +63,3 @@ docker start amosns
 ```
 
 ## Links
-
